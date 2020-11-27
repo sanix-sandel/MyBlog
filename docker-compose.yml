@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    image: blog_web
+    build: .
+    command: python3 myblog/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000  
