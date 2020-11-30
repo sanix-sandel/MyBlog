@@ -11,7 +11,7 @@ class Post(models.Model):
     title=models.CharField(max_length=255)
     content=models.TextField()
     tags=TaggableManager()
-    posted=models.DateField()
+    posted=models.DateField(auto_now_add=True)
 
     class Meta:
         ordering=('-posted',)

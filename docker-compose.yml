@@ -5,13 +5,24 @@ services:
     image: blog_web
     build: .
     command: python3 myblog/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/app
     ports:
       - 8000:8000  
+    volumes:
+      - .:/app
     depends_on: 
       - db  
+ #   networks:
+ #     - main  
   db:
     image: postgres:11    
+    volumes:
+      - postgres_data:/var/lib/postgresl/data/
+#    networks: 
+#      - main  
     environment: 
       - POSTGRES_PASSWORD=postgres
+#networks: 
+#  main:
+
+volumes:
+  postgres_data:      
