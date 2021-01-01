@@ -23,13 +23,11 @@ services:
       - db  
  #   networks:
  #     - main  
-  migration:
-    image : blog_web
-    command : python3 myblog/manage.py migrate --noinput
-    volumes:
-      - .:/code
-    depends_on: 
-      - db
+  #migration:
+  #  image : blog_web
+  #  command : python3 myblog/manage.py migrate --noinput
+  #  depends_on: 
+  #    - db
 
   db:
     image: postgres:11    
